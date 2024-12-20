@@ -17,7 +17,12 @@
 namespace local_gototop\privacy;
 
 /**
- * Privacy Subsystem implementation for block_mycourse.
+ * Privacy Subsystem implementation for local_gototop.
+ *
+ * @package    local_gototop
+ * @category   privacy
+ * @copyright  2024 Shivanesh Lal<shivanesh.lal@outlook.com.com>
+ * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class provider implements \core_privacy\local\metadata\null_provider {
 

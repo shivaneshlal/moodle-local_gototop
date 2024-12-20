@@ -16,6 +16,11 @@
 
 /**
  * Plugin strings are defined here.
+ *
+ * @package     local_gototop
+ * @category    string
+ * @copyright   2024 Shivanesh Lal<shivanesh.lal@outlook.com.com>
+ * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();

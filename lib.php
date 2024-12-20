@@ -18,17 +18,18 @@
  * Local plugin to add a go to top button.
  *
  * @package     local_gototop
- * @copyright   2024 Shivanesh Lal<shivanesh.lal@outlook.com.com>
+ * @copyright   2024 Shivanesh Lal<shivanesh.lal@outlook.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- *
- * This is the local gototop local plugin function.
+ */
+
+/**
+ * Extends the global navigation to include the Go to Top button.
  *
  * This function will extend the navigation block to add a go to top button
  * on the bottom right corner of the page when the user scrolls down.
+ *
+ * @param global_navigation $navigation The global navigation object.
  */
-
-defined('MOODLE_INTERNAL') || die();
-
 function local_gototop_extend_navigation(global_navigation $navigation) {
     global $PAGE;
     $PAGE->requires->js_call_amd('local_gototop/gototop', 'init');
