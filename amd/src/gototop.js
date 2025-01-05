@@ -32,7 +32,7 @@ define(['core/templates'], (templates) => {
 
                 button.addEventListener('click', (event) => {
                     event.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({top: 0, behavior: 'smooth'});
                 });
 
                 const adjustButtonPosition = () => {
