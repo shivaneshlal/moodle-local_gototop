@@ -7,7 +7,7 @@
     width: 35px;
     height: 35px;
     border-radius: 50%;
-    transition: right 0.3s ease;
+    transition: right 0.2s ease;
 }
 
 #gototop i {
@@ -16,5 +16,5 @@
 }
 
 #theme_boost-drawers-blocks {
-    transition: right 0.3s ease;
+    transition: right 0.2s ease;
 }

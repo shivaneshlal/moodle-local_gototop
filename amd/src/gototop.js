@@ -13,38 +13,39 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-define(['jquery', 'core/templates'], ($, templates) => {
+define(['core/templates'], (templates) => {
     return {
         init: () => {
             templates.render('local_gototop/gototop', {}).done((html, js) => {
-                $('body').append(html);
+                document.body.insertAdjacentHTML('beforeend', html);
                 templates.runTemplateJS(js);
 
-                const button = $('#gototop');
+                const button = document.getElementById('gototop');
 
-                $(window).scroll(() => {
-                    if ($(window).scrollTop() > 100) {
-                        button.fadeIn();
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 100) {
+                        button.style.display = 'block';
                     } else {
-                        button.fadeOut();
+                        button.style.display = 'none';
                     }
                 });
 
-                button.on('click', () => {
-                    $('html, body').animate({ scrollTop: 0 }, 'slow');
-                    return false;
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
 
                 const adjustButtonPosition = () => {
-                    if ($('#theme_boost-drawers-blocks').hasClass('show')) {
-                        button.css('right', 'calc(20px + 315px + 0.9rem)'); // Adjust based on drawer width
+                    const drawer = document.getElementById('theme_boost-drawers-blocks');
+                    if (drawer.classList.contains('show')) {
+                        button.style.right = 'calc(20px + 315px + 0.8rem)'; // Adjust based on drawer width
                     } else {
-                        button.css('right', '20px');
+                        button.style.right = '20px';
                     }
                 };
 
-                $('#theme_boost-drawers-blocks').on('transitionend', adjustButtonPosition);
-                $(window).on('resize', adjustButtonPosition);
+                document.getElementById('theme_boost-drawers-blocks').addEventListener('transitionend', adjustButtonPosition);
+                window.addEventListener('resize', adjustButtonPosition);
                 adjustButtonPosition(); // Initial adjustment
             });
         }
