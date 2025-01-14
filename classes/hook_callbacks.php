@@ -22,15 +22,23 @@
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace local_gototop;
+
+use core\hook\output\before_footer_html_generation;
+
 /**
- * Extends the global navigation to include the Go to Top button.
- *
- * This function will extend the navigation block to add a go to top button
- * on the bottom right corner of the page when the user scrolls down.
- *
- * @param global_navigation $navigation The global navigation object.
+ * Hook callbacks for the local_gototop plugin.
  */
-function local_gototop_extend_navigation(global_navigation $navigation) {
-    global $PAGE;
-    $PAGE->requires->js_call_amd('local_gototop/gototop', 'init');
+class hook_callbacks {
+    /**
+     * Add JavaScript before the footer is rendered.
+     *
+     * @param before_footer_html_generation $hook
+     */
+    public static function local_gototop_before_footer(before_footer_html_generation $hook): void {
+        global $PAGE;
+
+        // JavaScript for the GoToTop feature.
+        $PAGE->requires->js_call_amd('local_gototop/gototop', 'init');
+    }
 }
